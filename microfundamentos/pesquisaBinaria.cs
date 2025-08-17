@@ -25,3 +25,22 @@ bool PesquisaBinaria(int [] vetor, int x)
 }
 // melhor caso: elemento na metade inicial
 // pior caso: esta da ultima posicao de procura(lg(n) ou nao ta no vetor
+
+// RECURSIVO
+
+int PesquisaBinaria(int[] vetor, int x,int esq, int dir)
+{
+    if (esq > dir) return -1;
+    else
+    {
+        int meio = esq(esq + dir) / 2;
+        return meio;
+    } else if (x > vetor[meio])
+    {
+        return PesquisaBinaria(vetor, x, meio + 1, dir);
+    }
+    else
+    {
+        return PesquisaBinaria(vetor, x, esq, meio - 1);
+    }
+}
