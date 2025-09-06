@@ -44,7 +44,7 @@ public class exercicio1 {
         n++;
     }
     // remoções-> remover inicio, remover fim, remover
-    public void removeInicio() throws Exception{
+    public int removeInicio() throws Exception{
         // verificar se a lista esta vazia
         // salvar o valor do elemento retirado
         // decrementar n
@@ -98,4 +98,40 @@ public class exercicio1 {
         }
         return encontrado;
     }
+    // Arquivo: TesteListaLinear.java
+public class TesteListaLinear {
+    public static void main(String[] args) {
+        try {
+            System.out.println("Criando uma lista com capacidade 6.");
+            listaLinear lista = new listaLinear(6);
+
+            lista.inserirInicio(1);
+            lista.inserirFim(7);
+            lista.inserirFim(9);
+            lista.inserirInicio(3);
+            System.out.print("Após inserções: ");
+            lista.mostrar(); // Esperado: [ 3 1 7 9 ]
+
+            lista.inserir(5, 2);
+            System.out.print("Após inserir 5 na pos 2: ");
+            lista.mostrar(); // Esperado: [ 3 1 5 7 9 ]
+
+            int removido = lista.removerFim();
+            System.out.println("Elemento removido do fim: " + removido); // Esperado: 9
+            System.out.print("Lista atual: ");
+            lista.mostrar(); // Esperado: [ 3 1 5 7 ]
+
+            removido = lista.remover(1);
+            System.out.println("Elemento removido da pos 1: " + removido); // Esperado: 1
+            System.out.print("Lista atual: ");
+            lista.mostrar(); // Esperado: [ 3 5 7 ]
+            
+            System.out.println("Pesquisando pelo elemento 5: " + lista.pesquisar(5)); // Esperado: true
+            System.out.println("Pesquisando pelo elemento 8: " + lista.pesquisar(8)); // Esperado: false
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+}
 }
