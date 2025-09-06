@@ -19,8 +19,8 @@ public class exercicio6 {
         if( topo == 0){
             throw new Exception("Erro");
         }
-        int retirado = array[topo];
         topo --;
+        int retirado = array[topo];
         return retirado;
     }
 
@@ -30,7 +30,7 @@ public class exercicio6 {
         }
         System.out.print("[");
         // loop começa no topo (topo -1) e vai ate o da base 0
-        for(int i = topo -1; i >=0 ; i++){
+        for(int i = topo -1; i >=0 ; i--){
             System.out.print(array[i] + " ");
         }
         System.out.println("]");
