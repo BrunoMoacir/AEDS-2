@@ -99,7 +99,6 @@ public class exercicio1 {
         return encontrado;
     }
     // Arquivo: TesteListaLinear.java
-public class TesteListaLinear {
     public static void main(String[] args) {
         try {
             System.out.println("Criando uma lista com capacidade 6.");
@@ -134,4 +133,4 @@ public class TesteListaLinear {
         }
     }
 }
-}
+
