@@ -1,4 +1,8 @@
-package U4 - filas circulares;
+package U4
+
+import java.lang.reflect.Array;
+
+- filas circulares;
 
 public class exercicio16 {
 
@@ -8,6 +12,14 @@ public class exercicio16 {
             vazia = true;
         }
         return vazia;
+    }
+
+    public boolean isCheia(){
+        boolean cheia = false;
+        if((ultimo + 1) % array.length) == primeiro){
+            cheia = true;
+        }
+        return cheia;
     }
     
 }
