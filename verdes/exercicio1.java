@@ -24,3 +24,10 @@ public class exercicio1 {
     }
 
 }
+//////////////////////////////////
+ se fosse com CHAR:
+ char[] resultados = new char[6];
+ resultados[i] = sc.nextLine().charAt(0);// le so o 1 caractere
+ if(resultados[i] == 'V'){
+    countV ++;
+ }
