@@ -46,8 +46,32 @@ class Fila {
     }
 
     // somar todos os elementos
+    public int somaElementos(){
+        int soma = 0;
+        for(Celula i = primeiro; i != null; i = i.prox){
+            soma += i.elemento;
+        }
+        return soma;
+    }
 
-    
+
+    // contar pares multiplos de 5
+    int contar(){
+        return contarRec(primeiro.prox);
+    }
+    int contarRec(Celula i){
+        int resp = 0;
+        if(i == null){
+            resp = 0;
+        } else if(i.elemento % 2 == 0 && i.elemento % 5 == 0){
+            resp =  1 + contarRec(i.prox);
+        } else{
+            resp = contarRec(i.prox);
+        }
+        return resp;
+    }
+
+
 
 
     
