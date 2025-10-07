@@ -95,4 +95,38 @@ public class ListaSimplesEncadeadaOrdenada{
         }
         System.out.println();
     }
+
+    public void inserir(int x){
+        ultimo.prox = new Celula(x);
+        ultimo = ultimo.prox;
+    }
+    
+    public void mostrarMultiplos3(){
+        for(Celula i = primeiro.prox; i != null; i = i.prox){
+            if(i.elemento % 3 == 0){
+                System.out.print(i.elemento + ", ");
+            }
+        }
+        System.out.println();
+    }
+
+    public int penultimoElemento() throws Exception{
+        if(primeiro.prox == null || primeiro.prox.prox == null){
+            throw new Exception("Erro");// lista nao tem penultimo elemento
+        }
+
+        Celula i;
+        for(i = primeiro.prox; i.prox.prox != null; i= i.prox);// percorre ate o no cuja i.prox.prox == null
+            return i.elemento
+    }
+
+    public int contarPares(){
+        return contarParesRec(primeiro.prox);
+    }
+
+    public int contarParesRec(){
+        if(i == null)return 0;// base
+        int atual = (i.elemento % 2 == 0) ? 1 : 0;
+        return atual + contarParesRec(i.prox);
+    }
 }
