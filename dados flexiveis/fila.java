@@ -20,5 +20,35 @@ class Fila {
         tmp = null;// remove a ref 
         return elemento;// retorna o valor que foi removido
     }
+
+    // retornar maior elemento
+
+    public int maiorElemento() throws Exception{
+        if(primeiro == null){
+            throw new Exception("Erro");
+        }
+        int maior = primeiro.elemento;
+        for(Celula i = primeiro.prox; i != null; i = i.prox){
+            if(maior < i.elemento){
+                maior = i.elemento;
+            }
+        }
+        return maior;
+    }
+
+
+    // retornar terceiro elemento
+    public int terceiroElemento() throws Exception{
+        if(primeiro == null || primeiro.prox == null || primeiro.prox.prox == null){
+            throw new Exception("Erro");
+        }
+        return primeiro.prox.prox.elemento;
+    }
+
+    // somar todos os elementos
+
+    
+
+
     
 }
