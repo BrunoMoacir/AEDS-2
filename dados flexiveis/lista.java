@@ -50,4 +50,49 @@ public class lista {
         qt --;
         return elemento;
     }
+    public int tamanho(){
+        return qt;
+    }
+
+
+
+}
+
+// insercao ordenada
+class Celula{
+    int elemento;
+    Celula prox;
+
+    Celula(int x){
+        elemento = x;
+        prox = null;
+    }
+}
+public class ListaSimplesEncadeadaOrdenada{
+    private Celula primeiro, ultimo;
+
+    public ListaSimplesEncadeadaOrdenada(){
+        primeiro = new Celula(0);// nó cabeça
+        ultimo = primeiro;
+    }
+
+    public void inserir(int x){
+        Celula i = primeiro;
+        while(i.prox != null && i.prox.elemento < x){
+            i = i.prox;
+        }
+        Celula novo = new Celula(x);
+        novo.prox = i.prox;
+        i.prox = novo;
+
+        if(novo.prox == null){
+            ultimo = novo;
+        }
+    }
+    public void mostrar(){
+        for(Celula i = promeiro.prox; i != null; i = i.prox){
+            System.out.print(i.elemento + " ");
+        }
+        System.out.println();
+    }
 }
