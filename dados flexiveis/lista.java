@@ -27,4 +27,27 @@ public class lista {
         i = ultimo.prox = null;
         return elemento;
     }
+
+    // adicionar um contador de elementos
+    public Lista(){
+        primeiro = new Celula();
+        ultimo = primeiro;
+        int count = 0;
+    }
+    public void inserirFim(int x){
+        ultimo.prox = new Celula(x);
+        ultimo = ultimo.prox;
+        count++;
+    }
+    public int remover()throws Exception(){
+        if(primeiro == ultimo){
+            throw new Exception("Erro");
+        }
+        Celula tmp = primeiro.prox;
+        int elemento = tmp.elemento;
+        primeiro.prox = tmp.prox;
+        if(tmp == ultimo) ultimo = primeiro;
+        qt --;
+        return elemento;
+    }
 }
