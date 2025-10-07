@@ -115,6 +115,44 @@ class pilha {
         System.out.print("]");
     }
 
+    public int countMaiorX(int x){
+        int count = 0;
+        Celula tmp = new Celula(x);
+        for(Celula i = topo; i != null; i = i.prox){
+            if(i.elemento > x.elemento){
+                count ++;
+            }
+        }
+    }
+
+    public int countMaiorX(){
+        return countMaiorXRec(topo, x);
+    }
+
+    public int countMaiorXRec(Celula i, int x){
+        if(i == null){
+            return 0; // caso base
+        }
+        if(i.elemento > x){
+            return 1 + countMaiorXRec(i.prox, x);
+        } else{
+            return countMaiorXRec(i.prox, x);
+        }
+    }
+
+    public int menorElemento()throws Exception{
+        if(topo == null){
+            throw new Exception("Erro");
+        }
+        int menor = topo.elemento;
+        for(Celula i = topo.prox; i != null; i = i.prox){
+            if(i.elemento < menor){
+                menor = i.elemento;
+            }
+        }
+        return menor;
+    }
+
     
 
 
