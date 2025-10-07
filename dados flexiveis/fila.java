@@ -71,6 +71,51 @@ class Fila {
         return resp;
     }
 
+    int contarMultiplos7(){
+        return contarMultiplos7Rec(primeiro.prox);
+    }
+    int contarMultiplos7Rec(Celula i){
+        int resp = 0;
+        if(i == null){
+            resp = 0;
+        } else if(i.elemento % 7 == 0){
+            resp = 1 + contarMultiplos7Rec(i.prox);
+        } else{
+            resp = contarMultiplos7Rec(i.prox);
+        }
+        return resp;
+    }
+
+    // retornar ultimo elemento
+    public int ultimoElemento() throws Exception{
+        if(primeiro.prox == null){
+            throw new Exception("fila vazia, erro");
+        }
+        Celula i;
+        for(i = primeiro.prox; i.prox != null; i = i.prox){
+            return i.elemento;
+        }
+    }
+
+    public int somarElementos(Celula i){
+        int soma = 0;
+        for(Celula i = primeiro; i != null; i = i.prox){
+            soma += i.elemento;
+        }
+        return soma;
+    }
+
+    // versao recursiva da de cima
+    public int somarElementos(){
+        return somarElementosRec(primeiro.prox);// inicializacao
+    }
+
+    public int somarElementosRec(Celula i){
+        if(i == null){
+            return 0;
+        }
+        return i.elemento + somarElementos(i.prox);
+    }
 
 
 
