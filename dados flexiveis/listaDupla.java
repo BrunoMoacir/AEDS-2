@@ -122,5 +122,37 @@ public class listaDupla {
                 j = k;
         }
     }
+
+    // implementar o Shellsort na lista dupla
+    // estrategia:
+    // calcular o tamanho da lista
+    // comecar com um gap = tamanho / 2
+    // para cada gap: 1. percorrer a lista da esquerda para direita
+    //2. para cada nó, deslocar o valor para a posicao correta
+    // repetir diminuindo o gap ate 1
+    public void shellsort() throws Exception{
+        int n = tamanho();
+        if(n < 2){
+            throw new Exception("erro");
+        }
+        for(int gap = n / 2; gap > 0; gap /= 2){
+            for(int i = gap; i < n; i++){
+                CelulaDupla noAtual = getNode(i);
+                int valorAtual = noAtual.elemento;
+                int j = i;
+                // move os elementos do sub array que sao maiores que o valor atual para uma posicao a frente de sua posicao atual
+                while(j >= gap && getNode(j - gap).elemento > valorAtual){
+                    // pega os nos que precisam trocar de valor
+                    CelulaDupla noParaMover = getNode(j);
+                    CelulaDupla noAnteriorNoGap = getNode(j - gap);
+
+                    // troca os valores
+                    swap(noParaMover, noAnteriorNoGap);
+                    j -= gap;
+                }
+            }
+        }
+    }
     
+
 }
