@@ -95,4 +95,32 @@ public class listaDupla {
             tmp = i = null;
         }
     }
+    
+    // inverter a ordem dos elementos da lista dupla
+    void inverte(){
+        Celula i = primeiro.prox;
+        Celula j = ultimo;
+        while( i != j && j.prox != i){
+            int tmp = i.elemento;
+            j.elemento = tmp;
+            i = i.prox;
+            j = j.ant;
+        }
+    }
+
+    // inverter a ordem dos elementos da lista simples
+    void inverte(){
+        Celula i = primeiro.prox;
+        Celula j = ultimo;
+        Celula k;
+        while( i != j && j.prox != i){
+            int tmp = i.elemento;
+            i.elemento = j.elemento;
+            j.elemento = tmp;
+            i = i.prox;
+            for(k = primeiro; k.prox != j; k = k.prox);
+                j = k;
+        }
+    }
+    
 }
