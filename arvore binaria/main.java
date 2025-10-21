@@ -47,4 +47,20 @@ class ArvoreBinaria{
         }
         return i;// retorna a referencia do no atual, modificado ou nao
     }
+
+    public boolean pesquisar(int x){
+        return pesquisar(x,raiz);
+    }
+    private boolean pesquisar(int x, No i){
+        boolean resp;
+        if(i == null){
+            resp = false;// nao achou
+        } else if(x == i.elemento){
+            resp = true; // achou
+        } else if( x < i.elemento){
+            resp = pesquisar(x, i.esq);// ir para esquerda
+        } else{
+            resp = pesquisar(x, i.dir);// ir para direita
+        }
+    }
 }
