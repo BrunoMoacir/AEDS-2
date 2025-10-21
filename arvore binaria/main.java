@@ -25,7 +25,7 @@ class ArvoreBinaria{
     }
 
     public void inserir(int x) throws Exception{
-        raiz = inserir(int x, No i);// chama o inserir recursivo, que começa pela raiz
+        raiz = inserir(x,raiz);// chama o inserir recursivo, que começa pela raiz
 
     }
 
@@ -62,5 +62,6 @@ class ArvoreBinaria{
         } else{
             resp = pesquisar(x, i.dir);// ir para direita
         }
+        return resp;
     }
 }
