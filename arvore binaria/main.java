@@ -64,4 +64,15 @@ class ArvoreBinaria{
         }
         return resp;
     }
+    // caminhar PRE -> raiz, esquerda -> direita, util para copiar uma arvore, pois salva a raiz primeiro
+    void caminharPre(){
+        caminharPre(raiz);
+    }
+    void caminharPre(No i){
+        if(i != null){
+            System.out.print(i.elemento + " ");
+            caminharPre(i.esq);
+            caminharPre(i.dir);
+        }
+    }
 }
