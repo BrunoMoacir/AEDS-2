@@ -83,7 +83,7 @@ class ArvoreBinaria{
         if(i != null){
             caminharPos(i.esq);
             caminharPos(i.dir);
-            caminharPos(i.elemento + " ");
+            System.out.print(i.elemento + " ");
         }
     }
     //caminhar CENTRAL -> visita o no entre os filhos -> esquerda -> Raiz -> Direita
@@ -93,7 +93,7 @@ class ArvoreBinaria{
     void caminharCentral(No i){
         if(i != null){
             caminharCentral(i.esq);
-            caminharCentral(i.elemento + " ");
+            System.out.print(i.elemento + " ");
             caminharCentral(i.dir);
         }
     }
