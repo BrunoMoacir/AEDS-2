@@ -75,4 +75,26 @@ class ArvoreBinaria{
             caminharPre(i.dir);
         }
     }
+    // caminhar POS -> visita o no DEPOIS dos filhos -> esquerda-> direita-> Raiz
+    void caminharPos(){
+        caminharPos(raiz);
+    }
+    void caminharPos(No i){
+        if(i != null){
+            caminharPos(i.esq);
+            caminharPos(i.dir);
+            caminharPos(i.elemento + " ");
+        }
+    }
+    //caminhar CENTRAL -> visita o no entre os filhos -> esquerda -> Raiz -> Direita
+    void caminharCentral(){
+        caminharCentral(raiz);
+    }
+    void caminharCentral(No i){
+        if(i != null){
+            caminharCentral(i.esq);
+            caminharCentral(i.elemento + " ");
+            caminharCentral(i.dir);
+        }
+    }
 }
