@@ -69,14 +69,14 @@ int main(){
                 desempilhar(pilha);
                 break;
             case 'M':// pesquisa
+                mostrar(pilha);
+                break;
+            case 'P'://mostra
                 scanf("%d", &num);
                 if(pesquisar(pilha,num))
                     printf("S\n");
                 else
                     printf("N\n");
-                break;
-            case 'P'://mostra
-                mostrar(pilha);
                 break;
         }
     }
