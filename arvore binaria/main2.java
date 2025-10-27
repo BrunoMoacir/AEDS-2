@@ -105,3 +105,42 @@ class ArvoreBinaria {
         }
     }
 }
+public class main2 { // Você pode renomear para Main ou LabArvoreBinaria
+    public static void main(String[] args) {
+        try {
+            ArvoreBinaria arvore = new ArvoreBinaria();
+
+            // Vamos inserir alguns números
+            arvore.inserir(10);
+            arvore.inserir(5);
+            arvore.inserir(15);
+            arvore.inserir(3);
+            arvore.inserir(7);
+            arvore.inserir(12);
+            arvore.inserir(18);
+
+            /* A árvore ficará assim:
+             * 10
+             * /    \
+             * 5      15
+             * / \    /  \
+             * 3   7  12  18
+             */
+
+            System.out.println("--- Caminhamentos ---");
+            arvore.caminharCentral(); // Deve imprimir em ordem: [ 3 5 7 10 12 15 18 ]
+            arvore.caminharPre();     // Deve imprimir: [ 10 5 3 7 15 12 18 ]
+            arvore.caminharPos();     // Deve imprimir: [ 3 7 5 12 18 15 10 ]
+
+            System.out.println("\n--- Pesquisas ---");
+            System.out.println("Pesquisar 7: " + (arvore.pesquisar(7) ? "Achou" : "Nao Achou"));
+            System.out.println("Pesquisar 99: " + (arvore.pesquisar(99) ? "Achou" : "Nao Achou"));
+
+            // Testando a exceção
+            // arvore.inserir(7); // Descomente esta linha para ver a exceção
+
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+    }
+}
