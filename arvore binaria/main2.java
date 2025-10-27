@@ -104,6 +104,46 @@ class ArvoreBinaria {
             System.out.print(i.elemento + " ");
         }
     }
+
+    public int contarNos(){
+        return contarNos(raiz);
+    }
+
+    private int contarNos(No i){
+        if(i == null){
+            return 0;
+        } else{
+            return 1 + contarNos(i.esq) + contarNos(i.dir);
+        }
+    }
+
+    public int somarElementos(){
+        return somarElementos(raiz);
+    }
+
+    private int somarElementos(No i){
+        if(i == null){
+            return 0;
+        } else{
+            return i.elemento + somarElementos(i.esq) + somarElementos(i.dir);
+        }
+    }
+
+    public int contarFolhas(){
+        return contarFolhas(raiz);
+    }
+
+    private int contarFolhas(No i){
+        if(i == null){
+            return 0;
+        } else if(i.esq == null && i.dir == null){
+            return 1;
+        } else {
+            return contarFolhas(i.esq) + contarFolhas(i.dir);
+        }
+    }
+
+
 }
 public class main2 { // Você pode renomear para Main ou LabArvoreBinaria
     public static void main(String[] args) {
