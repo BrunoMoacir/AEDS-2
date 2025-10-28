@@ -113,7 +113,7 @@ class ArvoreBinaria {
         if(i == null){
             return 0;
         } else{
-            return 1 + contarNos(i.esq) + contarNos(i.dir);
+            return 1 + contarNos(i.esq) + contarNos(i.dir);// esse +1 -> "conte esse nó, mais todos os nos a esquerda, mais todos os nos a direita"
         }
     }
 
@@ -153,7 +153,7 @@ class ArvoreBinaria {
             if(i.elemento % 2 == 0){
                 resultado = 1;
             }
-            resultado += contarPares(i.esq) + contarPares(i.dir);
+            resultado += contarPares(i.esq) + contarPares(i.dir);// nem todo o no deve ser contado, apenas alguns especificos
         }
         return resultado;
     }
