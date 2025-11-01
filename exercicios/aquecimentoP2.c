@@ -8,32 +8,29 @@ typedef struct{
 }Atleta;
 
 int main(){
-    int qtAtletas;
-    scanf("%d", &qtAtletas);
+    Atleta atletas[100];
+    int i = 0;
 
-    Atleta vetor[qtAtletas];// crio vetor de Atleta
-
-    for(int i = 0; i < qtAtletas; i++){
-        scanf("%s", &vetor[i].nome);
-        scanf("%i", &vetor[i].peso);
+    while(scanf("%s %d", atletas[i].nome, &atletas[i].peso) != EOF){
+        i++;// pego o tamanho para conseguir fazer a ordenacao bolha
     }
-    //ordenacao + alfabeto
-    for(int j = qtAtletas - 1; j > 0; j --){
-        for(int k = 0; k < j; k ++){
-            if(vetor[k].peso < vetor[k + 1]){
-                Atleta tmp = vetor[k];
-                vetor[k] = vetor[k + 1];
-                vetor[k + 1] = tmp;
-            } else if(vetor[k].peso == vetor[k + 1].peso){
-                if(strcmp(vetor[k].nome, vetor[k + 1].nome) > 0){
-                    Atleta tmp = vetor[k];
-                    vetor[k] = vetor[k + 1];
-                    vetor[k + 1] = tmp;
+
+    for(int k = i - 1; k > 0; k--){
+        for(int j = 0; j < k; j++){
+            if(atletas[j].peso < atletas[j + 1].peso){
+                Atleta tmp = atletas[j];
+                atletas[j] = atletas[j + 1];
+                atletas[j + 1] = tmp;
+            } else if(atletas[j].peso == atletas[j + 1].peso){
+                if(strcmp(atletas[j].nome,atletas[j+1].nome) > 0){
+                    Atleta tmp = atletas[j];
+                    atletas[j] = atletas[j + 1];
+                    atletas[j + 1] = tmp;
                 }
             }
         }
     }
-    for(int bmchef = 0; bmchef < qtAtletas; bmchef ++){
-        printf("%s %d\n", vetor[i].nome, vetor[i].peso);
+    for(int b = 0; b < i; b++){
+        printf("%s %d\n", atletas[b].nome, atletas[b].peso);
     }
 }

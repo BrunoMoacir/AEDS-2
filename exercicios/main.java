@@ -1,65 +1,59 @@
-// crie um programa que leia o nome e o salario de N funcionarios e mostre os funcionarios pelo salario em ordem decrescente
-// em caso de salario igual o desempate e pelo nome em ordem alfabetica
-
-// entradas:
-//4
-//Lucas 2500
-// amanda 3000
-//bruno 2500
-//caio 4000
 import java.util.Scanner;
 
-class Funcionario{
+class Atleta{
     public String nome;
-    public double salario;
+    public int peso;
 
-    public Funcionario (String nome, double salario){
+    Atleta(String nome, int peso){
         this.nome = nome;
-        this.salario = salario;
+        this.peso = peso;
     }
 
-    public String getNome(){
+    public String getName(){
         return nome;
     }
 
-    public double getSalario(){
-        return salario;
-    }
+    public int getPeso(){
+        return peso;
+    }    
 }
 
 public class main{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int n = sc.nextInt();
+        int qtAtletas = sc.nextInt();
         sc.nextLine();// consumir quebra de linha
 
-        Funcionario[] vetor = new Funcionario[n];
-        for(int i = 0; i < n; i++){
+        Atleta[] atletas = new Atleta[qtAtletas];
+
+        for(int i = 0; i < qtAtletas; i++){
             String nome = sc.next();
-            double salario = sc.nextDouble();
-            vetor[i] = new Funcionario(nome, salario);
+            int idade = sc.nextInt();
+            atletas[i] = new Atleta(nome, idade);
         }
 
-        // ordenar bolha + alfabeto
-        for(int k = n - 1; k > 0; k --){// começo do final do vetor
-            for(int j = 0; j < k; j++){// menor q a var anterior
-                // DECRESCENTE
-                if(vetor[j].getSalario() < vetor[j + 1].getSalario()){
-                    Funcionario tmp = vetor[j];
-                    vetor [j] = vetor [j + 1];
-                    vetor[j + 1] = tmp;
-                } else if(vetor[j].getSalario() == vetor[j + 1].getSalario()){
-                    if(vetor[j].getNome().compareTo(vetor[j + 1].getNome()) > 0){
-                        Funcionario tmp = vetor[j];
-                        vetor[j] = vetor[j + 1];
-                        vetor[j + 1] = tmp;
+        for(int j = qtAtletas - 1; j > 0; j--){
+            for(int k = 0; k < j; k++){
+                if(atletas[k].getPeso() < atletas[k + 1].getPeso()){
+                    Atleta tmp = atletas[k];
+                    atletas[k] = atletas[k + 1];
+                    atletas[k + 1] = tmp;
+                }
+                else if(atletas[k].getPeso() == atletas[k + 1].getPeso()){
+                    if(atletas[k].getName().compareTo(atletas[k + 1].getName()) > 0){// compareTo é usado para comparar duas string em ordem alfabetica, o >0 retorna de a primeira vem depois da segunda
+                        // > 0 troca de quiser ordem alfabetica crescrente
+                        // < 0 troca se quiser ordem alfabetica decrescente
+                        Atleta tmp = atletas[k];
+                        atletas[k] = atletas[k + 1];
+                        atletas[k + 1] = tmp;
                     }
                 }
             }
         }
-        for(int bmchef = 0; bmchef < n; bmchef ++){
-            System.out.println(vetor[bmchef].getNome() + " " + vetor[bmchef].getSalario());
+        for(int b = 0; b < qtAtletas; b++){
+            System.out.println(atletas[b].getName() + " " + atletas[b].getPeso());
         }
+
     }
 }
