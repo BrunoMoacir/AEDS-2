@@ -53,3 +53,13 @@ void quicksort(int vet[], int esq, int dir){
     if(esq < j)quicksort(vet,esq,j);
     if(i < dir)quicksort(vet,i,dir);
 }// se for recursivo e tiver pivo -> é quicksort
+
+// MERGE SORT
+void mergeSort(int vet[], int esq, int dir){
+    if(esq < dir){
+        int meio = (esq + dir) / 2;
+        mergeSort(vet,esq,meio);
+        mergeSort(vet,meio + 1, dir);
+        merge(vet,esq,meio,dir);
+    }
+}// se o codigo tiver "dividir em 2 partes e juntar", é MergeSort
