@@ -63,3 +63,33 @@ void mergeSort(int vet[], int esq, int dir){
         merge(vet,esq,meio,dir);
     }
 }// se o codigo tiver "dividir em 2 partes e juntar", é MergeSort
+
+//HEAP SORT
+void heapSort(int vet[], int n){
+    for(int i = n / 2 - 1;i >=0; i--){
+        heapify(vet,n,i);
+    }
+    for(int i = n - 1; i > 0; i--){
+        int temp = vet[0];
+        vet[0] = vet[i];
+        vet[i] = temp;
+        heapify(vet,i,0);
+    }
+}
+void heapify(int vet[], int n, int i){
+    int maior = i;
+    int esq = 2 * i + 1;
+    int dir = 2 * i + 2;
+
+    if(esq < n && vet[esq] > vet[maior])
+        maior = esq;
+    if(dir < n && vet[dir] > vet[maior])
+        maior = dir;
+    
+    if(maior != i){
+        int tmp = vet[i];
+        vet[i] = vet[maior];
+        vet[maior] = tmp;
+        heapify(vet,n,maior);
+    }
+}
