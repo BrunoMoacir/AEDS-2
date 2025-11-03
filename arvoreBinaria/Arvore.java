@@ -24,3 +24,5 @@ public class Arvore{
 
     }
 }
+// melhor caso: O(log n)
+// pior caso: O(n)
