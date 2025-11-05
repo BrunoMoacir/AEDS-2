@@ -156,3 +156,6 @@ public class listaDupla {
     
 
 }
+
+
+// questao de prova

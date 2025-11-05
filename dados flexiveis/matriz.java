@@ -7,14 +7,10 @@
 // sup -> celula superior
 // inf -> celula inferior
 
-public void imprimir(){
-    Celula i = inicio;
-    for(int ii = 0; ii < linha; ii++){
-        j = i;
-        for(int jj = 0; jj < coluna; jj ++){
-            System.out.println(j.elemento);
-            j = j.dir;
-        }
-        i = i.inf;
+// imprimir
+for(Celula i = inicio; i!= null; i=i.inf){
+    for(Celula j = i; j != null; j = j.dir){
+        System.out.print(j.elemento + " ");
     }
+    sysout;
 }
