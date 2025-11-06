@@ -93,3 +93,12 @@ void heapify(int vet[], int n, int i){
         heapify(vet,n,maior);
     }
 }
+for(int i = n; i > 0; i --){
+    for(int j = 0; j < i; j++){
+        if(vet[j] > vet[j + 1]){
+            int tmp = vet[j];
+            vet[j] = vet[j + 1];
+            vet[j + 1] = tmp;
+        }
+    }
+}
