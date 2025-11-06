@@ -48,7 +48,7 @@ public class exercicio8 {
                     }
                 }
             }
-            for(int b = 0; b < b; b ++){
+            for(int b = 0; b < n; b ++){
                 System.out.println(atletas[b].getNome() + " " + atletas[b].getPeso());
             }
         }
