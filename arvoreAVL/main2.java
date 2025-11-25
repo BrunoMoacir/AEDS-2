@@ -12,7 +12,13 @@ class No {
         this.elemento = elemento;
         this.esq = esq;
         this.dir = dir;
-        this.nivel = 1;
+        this.nivel = 1;// altura do nó
+    }
+
+    void setNivel(){
+        int nivelEsq = (esq == null) ? 0 : esq.nivel;
+        int nivelDir = (dir == null) ? 0 : dir.nivel;
+        this.nivel = Math.max(nivelEsq, nivelDir) + 1;
     }
 }
 
