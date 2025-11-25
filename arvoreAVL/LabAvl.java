@@ -57,6 +57,48 @@ class ArvoreBinaria {
         return i;
     }
 
+    private No rotacionarEsq(No no){
+        No noDir = no.dir;
+        No noDirEsq = (noDir != null) ? noDir.esq : null;
+
+        noDir.esq = no;
+        no.dir = noDirEsq;
+
+        no.setNivel();
+        noDir.setNivel();
+
+        return noDir;
+    }
+
+    private No rotacionarDir(No no){
+        No noEsq = no.esq;
+        No noEsqDir = (noEsq != null) ? noEsq.dir : null;
+
+        noEsq.dir = no;
+        no.esq = noEsqDir;
+
+        no.setNivel();
+        noEsq.setNivel();
+
+        return noEsq;
+    }
+
+    private No rotacionarDirEsq(No no){
+        if(no.dir != null){
+            no.dir = rotacionarDir(no.dir);
+        }
+        return rotacionarEsq(no);
+    }
+
+    private No rotacionarEsqDir(No no){
+        if(no.esq != null){
+            no.esq = rotacionarEsq(no.esq);
+        }
+        return rotacionarDir(no);
+    }
+
+   
+
     public boolean pesquisar(int x) {
         return pesquisar(x, raiz);
     }
@@ -177,7 +219,7 @@ class ArvoreBinaria {
     }
 
 }
-public class main2 { // Você pode renomear para Main ou LabArvoreBinaria
+public class LabAvl { // Você pode renomear para Main ou LabArvoreBinaria
     public static void main(String[] args) {
         try {
             ArvoreBinaria arvore = new ArvoreBinaria();
