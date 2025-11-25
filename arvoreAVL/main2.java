@@ -16,6 +16,7 @@ class No {
     }
 
     void setNivel(){
+        // se o filho for nulo, nivel 0
         int nivelEsq = (esq == null) ? 0 : esq.nivel;
         int nivelDir = (dir == null) ? 0 : dir.nivel;
         this.nivel = Math.max(nivelEsq, nivelDir) + 1;
@@ -44,6 +45,9 @@ class ArvoreBinaria {
         } else {
             throw new Exception("erro");
         }
+
+        i.setNivel();
+        
         return i;
     }
 
