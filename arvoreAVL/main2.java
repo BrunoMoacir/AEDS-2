@@ -21,6 +21,12 @@ class No {
         int nivelDir = (dir == null) ? 0 : dir.nivel;
         this.nivel = Math.max(nivelEsq, nivelDir) + 1;
     }
+
+    int getFatorBalanceamento(){// pegar  o fator de balanceamento
+        int nivelEsq = (esq == null) ? 0 : esq.nivel;
+        int nivelDir = (dir == null) ? 0 : dir.nivel;
+        return nivelDir - nivelEsq;
+    }
 }
 
 class ArvoreBinaria {
