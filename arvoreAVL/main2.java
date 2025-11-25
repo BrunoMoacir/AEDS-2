@@ -47,7 +47,7 @@ class ArvoreBinaria {
         }
 
         i.setNivel();
-        
+
         return i;
     }
 
@@ -83,7 +83,7 @@ class ArvoreBinaria {
 
     private void caminharPre(No i) {
         if (i != null) {
-            System.out.print(i.elemento + " ");
+            System.out.print(i.elemento + "(" + i.nivel + ") ");
             caminharPre(i.esq);
             caminharPre(i.dir);
         }
