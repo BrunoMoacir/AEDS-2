@@ -2,6 +2,7 @@ class No {
     int elemento;// valor armazenado no no
     No esq;// ref para o filho da esquerda
     No dir;// ref para o filho da direita
+    int nivel;
 
     No(int elemento) {
         this(elemento, null, null);// elemento da raiz
@@ -11,6 +12,7 @@ class No {
         this.elemento = elemento;
         this.esq = esq;
         this.dir = dir;
+        this.nivel = 1;
     }
 }
 
